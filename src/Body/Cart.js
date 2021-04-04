@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Component } from 'react';
+import { Component, useDebugValue } from 'react';
 class Cart extends Component{
 
 
@@ -26,6 +26,30 @@ delete =(pid)=>{
     window.location.href='/cart'
 })
 }
+
+plus =(data)=>{
+const quantity = document.querySelector(`.qty${data._id}`)
+let qty = parseInt(quantity.innerHTML)
+qty+=1
+axios.put('http://localhost:90/updateBooking/'+data._id,{Qty:qty},this.state.config).then((response)=>{
+
+alert('Updated')
+
+
+})
+}
+
+minus =(data)=>{
+  const quantity = document.querySelector(`.qty${data._id}`)
+  let qty = parseInt(quantity.innerHTML)
+  qty+=1
+  axios.put('http://localhost:90/updateBooking/'+data._id,{Qty:qty},this.state.config).then((response)=>{
+  
+  alert('Updated')
+  
+  
+  })
+  }
     render(){
         return(
             <>
@@ -64,15 +88,16 @@ delete =(pid)=>{
                                         <td><img src={"http://localhost:90/"+data.ProductId.pimage} className="img-cart" /></td>
                                         <td><strong>Product {i+1}</strong><p>{data.ProductId.pname}</p></td>
                                         <td>
-                                          <form className="form-inline">
-                                            <input className="form-control" type="text" value={data.Qty} />
-                                            <button rel="tooltip" className="btn btn-default" ></button>
+                                          
+                                          <button rel="tooltip" className="btn btn-default" onClick={this.plus.bind(this,data)} >+</button>
+                                            <p className={"qty"+data._id} >{data.Qty}</p>
+                                            <button  className="btn btn-default"  onClick={this.minus.bind(this,data)} >-</button>
                                             <button  className="btn btn-primary" onClick={this.delete.bind(this,data._id)}><i className="fa fa-trash-o" /></button> 
-                                            <a href="#" className="btn btn-primary" style={{marginLeft:"10px"}}>Update </a>
-                                          </form>
+                                            
+                                         
                                         </td>
                                         <td>${data.ProductId.pprice}</td>
-                                        <td>${parseInt(data.ProductId.pprice)*parseInt(data.Qty)}</td>
+                                        <td>${parseInt(data.Qty) * parseInt(data.ProductId.pprice) }</td>
                                       </tr>
                                       
                                         

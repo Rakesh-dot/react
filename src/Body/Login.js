@@ -16,6 +16,8 @@ class Login extends Component{
         .then((response)=>{
             console.log(response)
             localStorage.setItem('token',response.data.token);
+            localStorage.setItem('type',response.data.usertype);
+
             window.location.href='/'
         })
         .catch((err)=>{

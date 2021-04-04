@@ -1,7 +1,16 @@
 import {Component} from 'react';
 import {Link, Route} from 'react-router-dom';
 class Header extends Component{
+
+    logout =()=>{
+
+        localStorage.clear()
+        window.location.href='/login'
+    }
     render(){
+
+        const token = localStorage.getItem('token')
+        const type = localStorage.getItem('type')
         return(
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div class="container">
@@ -11,12 +20,11 @@ class Header extends Component{
                     </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <Link to="/" ><a class="nav-link" >Home</a>
-                            <span class="sr-only">(current)</span>
-                            </Link>
-                        </li> 
-                        <li class="nav-item active">
+
+
+                            {!token?
+                            (<>
+                            <li class="nav-item active">
                             <Link to="/login"><a class="nav-link" href="#">LogIn</a>
                             </Link>
                         </li>
@@ -24,11 +32,30 @@ class Header extends Component{
                             <Link to="/register"><a class="nav-link" href="#">Register</a>
                             </Link>
                         </li>
+                            </>)
+
+
+
+                            :(<>
+                            <li class="nav-item active">
+                            <Link to="/" ><a class="nav-link" >Home</a>
+                            <span class="sr-only">(current)</span>
+                            </Link>
+                            </li>
+                        
+                            
                         <li class="nav-item active">
                             <Link to="/Item"><a class="nav-link" href="#">Product</a>
                             </Link>
                         </li>
                         <li class="nav-item active">
+                            <Link to="/about"><a class="nav-link" href="#">About</a>
+                            </Link>
+                        </li>
+
+                        {type==="Admin"?(<>
+                        
+                            <li class="nav-item active">
                             <Link to="/AddItem"><a class="nav-link" href="#">AddProduct</a>
                             </Link>
                         </li>
@@ -36,10 +63,13 @@ class Header extends Component{
                             <Link to="/UpdateItem"><a class="nav-link" href="#">UpdateProduct</a>
                             </Link>
                         </li>
-                        <li class="nav-item active">
-                            <Link to="/about"><a class="nav-link" href="#">About</a>
-                            </Link>
-                        </li>
+                        </>):(<></>)
+
+
+
+                        }
+                       
+                       
                         <li class="nav-item active">
                             <Link to="/cart"><a class="nav-link" href="#"><i class="bi bi-cart" ></i></a>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -47,6 +77,17 @@ class Header extends Component{
                                 </svg>
                             </Link>
                         </li>  
+                        <li class="nav-item active">
+                            <button class="nav-link" onClick={this.logout}>LogOut</button>
+                            
+                        </li>
+                            
+                            </>)
+
+
+                            }
+                        
+                        
                         </ul>
                     </div>               
                 </div>
