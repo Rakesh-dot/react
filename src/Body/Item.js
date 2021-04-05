@@ -49,12 +49,12 @@ alert("Booking Done")
                         return(
                            
 
-                            <div class="col-lg-4" >
+                            <div class="col-lg-4" style={{marginTop:"50px"}}>
                                 <div class="card h-80">
                                 <img class="card-img-top" src={"http://localhost:90/"+product.pimage} alt="" style={{height:"300px",width:"200px",marginLeft:"auto",marginRight:"auto"}}/>
                                 <div class="card-body">
                                     <p>Name: {product.ptitle}</p>
-                                    <p>Price: {product.pprice}</p>
+                                    <p>Price:Nrs: {product.pprice}</p>
                                     <p>Description: {product.pdesc}</p>
                                     <p><button onClick={this.addToCart.bind(this,product._id)}>Add To Cart</button></p>
                                     {type==="Admin"?(<>

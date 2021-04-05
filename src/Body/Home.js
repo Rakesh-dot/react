@@ -40,7 +40,7 @@ class Home extends Component{
                 <div class="row">
 {
 
-this.state.data.slice(0,6).map((item)=>{
+this.state.data.slice(0,4).map((item)=>{
 
 return(
 
