@@ -42,7 +42,7 @@ alert('Updated')
 minus =(data)=>{
   const quantity = document.querySelector(`.qty${data._id}`)
   let qty = parseInt(quantity.innerHTML)
-  qty+=1
+  qty-=1
   axios.put('http://localhost:90/updateBooking/'+data._id,{Qty:qty},this.state.config).then((response)=>{
   
   alert('Updated')
@@ -85,14 +85,15 @@ minus =(data)=>{
                                 {this.state.data.map((data,i)=>{
                                     return(
                                         <tr>
-                                        <td><img src={"http://localhost:90/"+data.ProductId.pimage} className="img-cart" /></td>
+                                        <td><img src={"http://localhost:90/"+data.ProductId.pimage} className="img-cart" style={{height:"300px",width:"200px",marginLeft:"auto",marginRight:"auto"}}/></td>
                                         <td><strong>Product {i+1}</strong><p>{data.ProductId.pname}</p></td>
                                         <td>
                                           
-                                          <button rel="tooltip" className="btn btn-default" onClick={this.plus.bind(this,data)} >+</button>
+                                          
                                             <p className={"qty"+data._id} >{data.Qty}</p>
-                                            <button  className="btn btn-default"  onClick={this.minus.bind(this,data)} >-</button>
-                                            <button  className="btn btn-primary" onClick={this.delete.bind(this,data._id)}><i className="fa fa-trash-o" /></button> 
+                                            <button rel="tooltip" className="btn btn-default" onClick={this.plus.bind(this,data)} style={{backgroundColor:"red",width:"30px"}}>+</button>
+                                            <button  className="btn btn-default"  onClick={this.minus.bind(this,data)} style={{backgroundColor:"red",width:"30px",marginLeft:"10px"}}>-</button>
+                                            <p><button  className="btn btn-primary" onClick={this.delete.bind(this,data._id)} style={{width:"100px", marginTop:"20px"}}><i className="fa fa-trash-o" /></button> </p>
                                             
                                          
                                         </td>
@@ -109,15 +110,15 @@ minus =(data)=>{
                               </tr>
                               <tr>
                                 <td colSpan={4} className="text-right">Total Product</td>
-                                <td>${this.state.total}</td>
+                                <td>Nrs.{this.state.total}</td>
                               </tr>
                               <tr>
                                 <td colSpan={4} className="text-right">Total Shipping</td>
-                                <td>$2.00</td>
+                                <td>Nrs.50.00</td>
                               </tr>
                               <tr>
                                 <td colSpan={4} className="text-right"><strong>Total</strong></td>
-                                <td>${this.state.total +2}</td>
+                                <td>Nrs.{this.state.total +50}</td>
                               </tr>
                             </tbody>
                           </table>

@@ -9,7 +9,7 @@ import Body from './Body/Body'
 import './css/custom.css';
 import './vendor/bootstrap/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import 'react-toastify/dist/ReactToastify.css'
 import './css/heroic-features.css';
 
 

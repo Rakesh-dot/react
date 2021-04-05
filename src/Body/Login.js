@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {Component} from 'react';
+import {ToastContainer,toast} from 'react-toastify'
 class Login extends Component{
     state={
         email:'',
@@ -14,11 +15,22 @@ class Login extends Component{
         e.preventDefault();
         axios.post('http://localhost:90/user/login',this.state)
         .then((response)=>{
-            console.log(response)
-            localStorage.setItem('token',response.data.token);
-            localStorage.setItem('type',response.data.usertype);
+            if(response.data.success===true){
+                localStorage.setItem('token',response.data.token);
+                localStorage.setItem('type',response.data.usertype);
+    
+                window.location.href='/'
+toast.success("Welcome User")
 
-            window.location.href='/'
+
+            }
+         else{
+            toast.error('Invalid Credentials')
+         }
+
+
+            
+           
         })
         .catch((err)=>{
             console.log(err.response)
@@ -26,6 +38,8 @@ class Login extends Component{
     }
     render(){
         return(
+            <>
+            <ToastContainer autoClose={3000} position="top-center"/>
             <form action="action_page.php" method="post">
                 <div class="container">
                     <label for="email"><b>Email</b></label>
@@ -44,6 +58,8 @@ class Login extends Component{
 
                
             </form>
+            </>
+            
         )
     }
 }

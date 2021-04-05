@@ -4,7 +4,10 @@ import {Component} from 'react';
 class Home extends Component{
     state={
 
-        data:[]
+        data:[],
+        config:{
+            headers:{'authorization':`Bearer ${localStorage.getItem('token')}`}
+        }
     }
 
     componentDidMount(){
@@ -18,6 +21,15 @@ class Home extends Component{
             console.log(err.response)
         })
     }
+
+    addToCart =(pid)=>{
+
+        axios.post('http://localhost:90/booking/'+pid,this.state,this.state.config).then((response)=>{
+        
+        alert("Booking Done")
+        })
+    }
+
     render(){
         return(
             <div class="container">
@@ -42,7 +54,7 @@ return(
                         <p class="card-title">Category: {item.pcategory}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-primary">Add To Cart</a>
+                        <a href="#" class="btn btn-primary" onClick={this.addToCart.bind(this,item._id)} >Add To Cart</a>
                     </div>
                     </div>
     </div>
