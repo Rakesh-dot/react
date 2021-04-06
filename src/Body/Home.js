@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {Component} from 'react';
-
+import Tab from './tab'
 class Home extends Component{
     state={
 
@@ -33,6 +33,7 @@ class Home extends Component{
     render(){
         return(
             <div class="container">
+                <Tab/>
                 <header class="jumbotron my-4">
                 <h1 class="display-3">A Warm Welcome!</h1>
                 </header>
