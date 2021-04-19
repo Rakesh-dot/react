@@ -28,8 +28,8 @@ class Register extends Component{
     render(){
         
         return(
-            <form action="action_page.php">
-                <div class="container">
+            <form action="action_page.php" >
+                <div class="container" style={{width:"700px"}}>
                     <h1>Register</h1>
                     <hr/>
 
@@ -51,11 +51,13 @@ class Register extends Component{
                     <hr/>
 
                     <button onClick={this.submitUser} type="submit" class="registerbtn">Register</button>
+
+                    <div class="container signin">
+                    <p>Already have an account? <a href="/login">Sign in</a>.</p>
+                </div>
                 </div>
 
-                <div class="container signin">
-                    <p>Already have an account? <a href="#">Sign in</a>.</p>
-                </div>
+                
 
 
             </form>

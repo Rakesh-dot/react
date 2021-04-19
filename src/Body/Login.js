@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {Component} from 'react';
 import {ToastContainer,toast} from 'react-toastify'
+import pict from "../pict/logo.PNG"
 class Login extends Component{
     state={
         email:'',
@@ -40,8 +41,9 @@ toast.success("Welcome User")
         return(
             <>
             <ToastContainer autoClose={3000} position="top-center"/>
-            <form action="action_page.php" method="post">
-                <div class="container">
+            <form action="action_page.php" method="post" style={{width:"650px",marginLeft:"auto",marginRight:"auto",marginTop:"100px"}}>
+                <img src={pict} />
+                <div class="container" >
                     <label for="email"><b>Email</b></label>
                     <input type="text"  name="email" value={this.state.email}
                     onChange={this.inputHandlerr} />
@@ -51,9 +53,7 @@ toast.success("Welcome User")
                     onChange={this.inputHandlerr}/>
 
                     <button onClick={this.submitUser}>Login</button>
-                    <label>
-                    <input type="checkbox" checked="checked" name="remember" /> Remember me
-                    </label>
+                  
                 </div>
 
                

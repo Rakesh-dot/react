@@ -9,6 +9,7 @@ import AddItem from './AddItem'
 import UpdateItem from './UpdateItem'
 import Cart from "./Cart";
 import admin from './admin'
+import About from "./About";
 class Body extends Component{
     render(){
         return(
@@ -23,6 +24,7 @@ class Body extends Component{
                         <Route path='/UpdateItem/:id' component={UpdateItem} /> 
                         <Route path='/Cart' component={Cart} /> 
                         <Route path='/admin' component={admin} /> 
+                        <Route path='/About' component={About} /> 
 
                     
                 </div>

@@ -33,7 +33,7 @@ class Home extends Component{
     render(){
         return(
             <div class="container">
-                <Tab/>
+                {/* <Tab/> */}
                 <header class="jumbotron my-4">
                 <h1 class="display-3">A Warm Welcome!</h1>
                 </header>

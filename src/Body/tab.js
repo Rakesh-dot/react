@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Item from './Item'
 import Add from './AddItem'
-import About from './About'
+import AllCart from './AllCart'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -78,9 +78,9 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Item One" icon={<PhoneIcon />} {...a11yProps(0)} />
-          <Tab label="Item Two" icon={<FavoriteIcon />} {...a11yProps(1)} />
-          <Tab label="Item Three" icon={<PersonPinIcon />} {...a11yProps(2)} />
+          <Tab label="Items"  {...a11yProps(0)} />
+          <Tab label="Add Product"  {...a11yProps(1)} />
+          <Tab label="Cart Details"  {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -90,7 +90,7 @@ export default function ScrollableTabsButtonForce() {
         <Add/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <About/>
+        <AllCart/>
       </TabPanel>
      
     </div>
