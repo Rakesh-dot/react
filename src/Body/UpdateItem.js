@@ -39,6 +39,7 @@ class UpdateItem extends Component{
         .catch((err)=>{
             console.log(err.response)
         })
+        alert("Update Done")
     }
     render(){
         return(

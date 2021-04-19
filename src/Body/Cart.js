@@ -125,8 +125,7 @@ minus =(data)=>{
                         </div>
                       </div>
                     </div>
-                    <a href="#" className="btn btn-success"><span className="glyphicon glyphicon-arrow-left" />&nbsp;Continue Shopping</a>
-                    <a href="#" className="btn btn-primary pull-right">Next<span className="glyphicon glyphicon-chevron-right" /></a>
+                    <a href="/item" className="btn btn-success"><span className="glyphicon glyphicon-arrow-left" />&nbsp;Continue Shopping</a>
                   </div>
                 </div>
               </div>

@@ -107,18 +107,8 @@ export default class AllCart extends Component{
                               <tr>
                                 <td colSpan={6}>&nbsp;</td>
                               </tr>
-                              <tr>
-                                <td colSpan={4} className="text-right">Total Product</td>
-                                <td>Nrs.{this.state.total}</td>
-                              </tr>
-                              <tr>
-                                <td colSpan={4} className="text-right">Total Shipping</td>
-                                <td>Nrs.50.00</td>
-                              </tr>
-                              <tr>
-                                <td colSpan={4} className="text-right"><strong>Total</strong></td>
-                                <td>Nrs.{this.state.total +50}</td>
-                              </tr>
+
+                             
                             </tbody>
                           </table>
                         </div>

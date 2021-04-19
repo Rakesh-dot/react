@@ -55,10 +55,7 @@ class Header extends Component{
 
                         {type==="Admin"?(<>
                         
-                            <li class="nav-item active">
-                                <Link to="/AddItem"><a class="nav-link" href="#">AddProduct</a>
-                                </Link>
-                            </li>
+                           
                         <li class="nav-item active">
                             <Link to="/admin"><a class="nav-link" href="#">Admin Panel</a>
                             </Link>
