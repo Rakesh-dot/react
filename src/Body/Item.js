@@ -34,7 +34,7 @@ addToCart =(pid)=>{
 
 axios.post('http://localhost:90/booking/'+pid,this.state,this.state.config).then((response)=>{
 
-alert("Booking Done")
+alert("Bookings Done")
 })
 
 
